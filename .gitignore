@@ -64,4 +64,4 @@ logs/
 htmlcov/
 
 # API keys file (backup)
-keys.md 
+keys.md keys.md
