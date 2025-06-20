@@ -1,0 +1,17 @@
+pandas>=1.5.0
+requests>=2.28.0
+python-dotenv>=0.19.0
+openpyxl>=3.0.0
+click>=8.0.0
+rich>=13.0.0
+numpy>=1.24.0
+python-dateutil>=2.8.0
+matplotlib
+fpdf
+apscheduler
+ratelimit
+quiverquant
+yfinance>=0.2.0
+scipy>=1.10.0
+streamlit>=1.25.0
+plotly>=5.14.0
