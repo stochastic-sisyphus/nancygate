@@ -72,16 +72,18 @@ class PatternDetector:
                 member_stats['TotalTrades'] / (date_range / 30.0)
             ).round(2)
         
-        # Identify most active traders
+        # Calculate activity score
         member_stats['ActivityScore'] = (
-            member_stats['TotalTrades'] * 0.3 +
-            member_stats['AvgSignalScore'] * 0.4 +
+            member_stats['TotalTrades'] * 0.3 + 
+            member_stats['AvgSignalScore'] * 0.4 + 
             member_stats['OptionTrades'] * 0.3
-        ).round(2)
+        )
+        
+        # Ensure ActivityScore is numeric before rounding
+        member_stats['ActivityScore'] = pd.to_numeric(member_stats['ActivityScore'], errors='coerce')
+        member_stats['ActivityScore'] = member_stats['ActivityScore'].fillna(0).round(2)
         
         member_stats = member_stats.sort_values(by='ActivityScore', ascending=False)
-        member_stats = member_stats.reset_index()
-        member_stats = member_stats.reset_index()
         member_stats = member_stats.reset_index()
         
         print(f"  ✓ Member analysis: {len(member_stats)} members analyzed")
